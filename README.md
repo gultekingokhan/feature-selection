@@ -42,5 +42,35 @@ This argument says: do not use it in tfidf, because it probaly does not contain 
 |High error on training set (low r², large SSE)|Much higher error on test set than on training set|
 |Few features used|Many features, carefully optimized performance on training data|
 
-⭐️**Sweet spot** ⭐: Few features, large r²/low SSE
+⭐️**Sweet spot** ⭐ Few features, large r²/low SSE
 
+## An overfit regression
+![overfit](an-overfit-regression.png)
+
+## Regularization
+![regualarization](regularization.png)
+
+### Regularization in Regression
+Method for "automatically penalizing extra features".
+
+## Lasso Regression
+Minimize `SSE + λ|β|`
+
+- SSE: errors
+- β: coefficients of regression
+- λ|β|: no. of features
+
+![regualarization-formula](regularization-formula.png)
+
+- m's: coefficients of regression
+- x's: features
+
+## Sklearn / Lasso
+
+```python
+from sklearn.linear_model import Lasso 
+
+regression = Lasso()
+regression.coef_
+> [0.7, 0.0] # That means, we have 2 features and the first one matters!
+```
